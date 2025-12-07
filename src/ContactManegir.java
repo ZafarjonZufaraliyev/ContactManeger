@@ -142,10 +142,7 @@ public class ContactManegir {
         System.out.print("Telefon kiriting: ");
         String telefon = sc.next();
 
-        Contact contact = new Contact();
-        contact.ism = ism;
-        contact.familya = familya;
-        contact.telefon = telefon;
+        Contact contact = new Contact(ism,familya,telefon);
 
         return contact;
     }
