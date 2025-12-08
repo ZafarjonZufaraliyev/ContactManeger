@@ -3,10 +3,10 @@ package contact;
 import java.util.Scanner;
 
 public class ContactManegir {
-     Contact[] ContactArr = new Contact[10];
+    Contact[] ContactArr = new Contact[10];
     int index = 0;
 
-    public  void start(){
+    public void start() {
         boolean start = true;
         while (start) {
             menu();
@@ -42,11 +42,11 @@ public class ContactManegir {
         }
     }
 
-    public  void deleteContact(String telefonDelete) {
+    public void deleteContact(String telefonDelete) {
         for (int i = 0; i < ContactArr.length; i++) {
             Contact contact = ContactArr[i];
-            if (contact != null && contact.telefon.equals(telefonDelete)) {
-                System.out.println("|| " + contact.ism+" "+contact.familya + " kontakti o'chirildi ||");
+            if (contact != null && contact.getTelefon().equals(telefonDelete)) {
+                System.out.println("|| " + contact.getIsm() + " " + contact.getFamilya() + " kontakti o'chirildi ||");
                 ContactArr[i] = null;
                 return;
             }
@@ -54,46 +54,56 @@ public class ContactManegir {
         System.out.println("|| Kontakt topilmadi ||");
     }
 
-    public  String inputDeletePhone() {
+    public String inputDeletePhone() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Telefon raqam: ");
         return sc.next();
     }
 
-    public  String query() {
+    public String query() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Qidirish: ");
         return sc.next();
     }
 
-    public  void search(String qidiruvValue) {
+    public void search(String qidiruvValue) {
         boolean found = true;
-        String inputSon=qidiruvValue.toLowerCase();
+        String inputSon = qidiruvValue.toLowerCase();
+        System.out.printf("--------------------------------------------------%n");
+        System.out.printf("|                       Ro'yxat                  |%n");
+        System.out.printf("--------------------------------------------------%n");
+        System.out.printf("| %-10s | %-15s | %-15s |%n", "Ism", "Familya", "Telefon");
         for (Contact c : ContactArr) {
             if (c != null &&
-                    (c.ism.toLowerCase().contains(inputSon) ||
-                            c.familya.toLowerCase().contains(inputSon) ||
-                            c.telefon.toLowerCase().contains(inputSon))) {
+                    (c.getIsm().toLowerCase().contains(inputSon) ||
+                            c.getFamilya().toLowerCase().contains(inputSon) ||
+                            c.getFamilya().toLowerCase().contains(inputSon))) {
 
-                System.out.println(c.ism + " " + c.familya + " " + c.telefon);
+                System.out.printf("| %-10s | %-15s | %-15s |%n", c.getIsm(), c.getFamilya(), c.getTelefon());
                 found = false;
             }
         }
+        System.out.printf("--------------------------------------------------%n");
         if (found) System.out.println("|| Hech narsa topilmadi ||");
     }
 
-    public  void printList() {
+    public void printList() {
         boolean empty = true;
+        System.out.printf("--------------------------------------------------%n");
+        System.out.printf("|                       Ro'yxat                  |%n");
+        System.out.printf("--------------------------------------------------%n");
+        System.out.printf("| %-10s | %-15s | %-15s |%n", "Ism", "Familya", "Telefon");
         for (Contact c : ContactArr) {
             if (c != null) {
-                System.out.println(c.ism + " " + c.familya + " " + c.telefon);
+                System.out.printf("| %-10s | %-15s | %-15s |%n", c.getIsm(), c.getFamilya(), c.getTelefon());
                 empty = false;
             }
         }
+        System.out.printf("--------------------------------------------------%n");
         if (empty) System.out.println("|| Kontaktlar yo‘q ||");
     }
 
-    public  void addArrayContact(Contact contact) {
+    public void addArrayContact(Contact contact) {
         if (!checkContact(contact)) return;
 
         if (index == ContactArr.length) {
@@ -110,21 +120,21 @@ public class ContactManegir {
         System.out.println("|| Kontakt qo‘shildi ||");
     }
 
-    public  boolean checkContact(Contact c) {
-        if (c.ism == null || c.ism.trim().length() < 3) {
+    public boolean checkContact(Contact c) {
+        if (c.getIsm() == null || c.getIsm().trim().length() < 3) {
             System.out.println("|| Ism xato !!! ||");
             return false;
         }
-        if (c.familya == null || c.familya.trim().length() < 3) {
+        if (c.getFamilya() == null || c.getFamilya().trim().length() < 3) {
             System.out.println("|| Familya xato !!! ||");
             return false;
         }
-        if (c.telefon == null || c.telefon.length() != 12 || !c.telefon.startsWith("998")) {
+        if (c.getTelefon() == null || c.getTelefon().length() != 12 || !c.getTelefon().startsWith("998")) {
             System.out.println("|| Telefon xato !!! ||");
             return false;
         }
 
-        for (char tel : c.telefon.toCharArray()) {
+        for (char tel : c.getTelefon().toCharArray()) {
             if (!Character.isDigit(tel)) {
                 System.out.println("|| Telefon faqat raqam bo‘lishi kerak !!! ||");
                 return false;
@@ -133,7 +143,7 @@ public class ContactManegir {
         return true;
     }
 
-    public  Contact addContact() {
+    public Contact addContact() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Ism kiriting: ");
         String ism = sc.next();
@@ -144,21 +154,27 @@ public class ContactManegir {
         System.out.print("Telefon kiriting: ");
         String telefon = sc.next();
 
-        Contact contact = new Contact(ism,familya,telefon);
+        Contact contact = new Contact();
+        contact.setIsm(ism);
+        contact.setFamilya(familya);
+        contact.setTelefon(telefon);
 
         return contact;
     }
 
-    public  void menu() {
-        System.out.println("\n  ***** Menu *****  ");
-        System.out.println("1. Kontakt qo'shish ");
-        System.out.println("2. Kontakt ro'yxati ");
-        System.out.println("3. Kontakt qidirish ");
-        System.out.println("4. Kontakt o'chirish ");
-        System.out.println("0. Tugatish ");
+    public void menu() {
+        System.out.printf("-----------------------------%n");
+        System.out.printf("|   ****Contact Menu****    |%n");
+        System.out.printf("-----------------------------%n");
+        System.out.printf("| %-25s |%n", "1. Kontakt qo'shish ");
+        System.out.printf("| %-25s |%n", "2. Kontakt ro'yxati ");
+        System.out.printf("| %-25s |%n", "3. Kontakt qidirish ");
+        System.out.printf("| %-25s |%n", "4. Kontakt o'chirish ");
+        System.out.printf("| %-25s |%n", "0. Tugatish ");
+        System.out.printf("-----------------------------%n");
     }
 
-    public  int getNumber() {
+    public int getNumber() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Qanday amal bajarasiz: ");
         return sc.nextInt();

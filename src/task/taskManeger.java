@@ -165,12 +165,15 @@ public class taskManeger {
     }
 
     public void menu() {
-        System.out.println("\n  ***** Menu *****  ");
-        System.out.println("1. Vazifa qo'shish ");
-        System.out.println("2. Vazifa ro'yxati ");
-        System.out.println("3. Holatni o‘zgartirish (nomi) ");
-        System.out.println("4. Holatni o‘zgartirish (id) ");
-        System.out.println("5. Aktiv vazifa ");
-        System.out.println("0. Tugatish ");
+        System.out.printf("------------------------------------%n");
+        System.out.printf("|         ****Task Menu****        |%n");
+        System.out.printf("------------------------------------%n");
+        System.out.printf("| %-32s |%n","1. Vazifa qo'shish ");
+        System.out.printf("| %-32s |%n","2. Vazifa ro'yxati ");
+        System.out.printf("| %-32s |%n","3. Holatni o‘zgartirish (nomi) ");
+        System.out.printf("| %-32s |%n","4. Holatni o‘zgartirish (id) ");
+        System.out.printf("| %-32s |%n","5. Aktiv vazifa ");
+        System.out.printf("| %-32s |%n","0. Tugatish ");
+        System.out.printf("------------------------------------%n");
     }
 }
