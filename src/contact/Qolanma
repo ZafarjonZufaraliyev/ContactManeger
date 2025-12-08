@@ -9,11 +9,11 @@ Bu dastur console yordamida ishlaydigan bo'lsin. Muhim Birxil kontaklar kiritish
 Xar bir kontaktning ismi, familiyasi va telefon raqami bor.
 
     ** Menu **
-        1-Add Contact,
+        1-Add contact.Contact,
             Enter name:
             Enter surname:
             Enter phone:
-        2-Contact List,
+        2-contact.Contact List,
             1. Name Surname Phone
         3-Search (name,surname,phone)
         4-Delete contact (by phone)
