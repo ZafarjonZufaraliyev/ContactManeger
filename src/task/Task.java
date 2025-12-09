@@ -1,7 +1,7 @@
 package task;
 
 public class Task {
-    private int Id;
+    private Integer Id;
     private String sarlavha;
     private String mazmun;
     private String holat; //bajarildi, bajarilmadi
@@ -26,7 +26,7 @@ public class Task {
         return Id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         Id = id;
     }
 

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class ContactManegir {
     Contact[] ContactArr = new Contact[10];
-    int index = 0;
+    Integer index = 0;
 
     public void start() {
         boolean start = true;

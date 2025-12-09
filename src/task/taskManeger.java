@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 public class taskManeger {
     public Task[] taskArray = new Task[10];
-    public int index = 0;
-    public int generalId = 1;
+    public Integer index = 0;
+    public Integer generalId = 1;
 
     public void start() {
-        boolean boshlanTask = true;
+        Boolean boshlanTask = true;
         while (boshlanTask) {
             menu();
-            int number = getNumber();
+            Integer number = getNumber();
             switch (number) {
                 case 1:
                     Task task = addTask();
@@ -104,7 +104,7 @@ public class taskManeger {
     }
 
     public void changeStatusTitel(String sarlavha) {
-        boolean chiqish = true;
+        Boolean chiqish = true;
         for (Task task : taskArray) {
             if (task != null && task.getSarlavha().equals(sarlavha)) {
                 if (task.getHolat().equals("Bajarilmadi")) {
@@ -127,7 +127,7 @@ public class taskManeger {
     }
 
     public void changeStatusId(int Id) {
-        boolean chiqish = true;
+        Boolean chiqish = true;
         for (Task task : taskArray) {
             if (task != null && task.getId() == Id) {
                 if (task.getHolat().equals("Bajarilmadi")) {
