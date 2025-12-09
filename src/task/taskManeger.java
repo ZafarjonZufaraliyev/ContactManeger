@@ -91,7 +91,7 @@ public class taskManeger {
         System.out.printf("--------------------------------------------------------------%n");
         for (Task task : taskArray) {
             if (task != null) {
-                System.out.printf("|%-12s | %-25s | %-15s |%n" , task.getSarlavha() , task.getMazmun() ,task.getHolat());
+                System.out.printf("|%-12s | %-25s | %-15s |%n", task.getSarlavha(), task.getMazmun(), task.getHolat());
             }
         }
         System.out.printf("--------------------------------------------------------------%n");
@@ -112,7 +112,7 @@ public class taskManeger {
                 } else {
                     task.setHolat("Bajarilmadi");
                 }
-                System.out.print("|| Holat o'zgartroldi ||");
+                System.out.println("|| Holat o'zgartroldi ||");
                 chiqish = false;
                 break;
             }
@@ -148,7 +148,6 @@ public class taskManeger {
         System.out.printf("|                      TaskList                              |%n");
         System.out.printf("--------------------------------------------------------------%n");
         System.out.printf("| %-3s | %-12s | %-22s | %-12s |\n", "Id", "Sarlavha", "Mazmun", "Holat");
-        System.out.printf("--------------------------------------------------------------%n");
         for (Task task : taskArray) {
             if (task != null && task.getHolat().equals("Bajarilmadi")) {
                 System.out.printf("| %-3d | %-12s | %-22s | %-12s |\n", task.getId(), task.getSarlavha(), task.getMazmun(), task.getHolat());
@@ -168,12 +167,12 @@ public class taskManeger {
         System.out.printf("------------------------------------%n");
         System.out.printf("|         ****Task Menu****        |%n");
         System.out.printf("------------------------------------%n");
-        System.out.printf("| %-32s |%n","1. Vazifa qo'shish ");
-        System.out.printf("| %-32s |%n","2. Vazifa ro'yxati ");
-        System.out.printf("| %-32s |%n","3. Holatni o‘zgartirish (nomi) ");
-        System.out.printf("| %-32s |%n","4. Holatni o‘zgartirish (id) ");
-        System.out.printf("| %-32s |%n","5. Aktiv vazifa ");
-        System.out.printf("| %-32s |%n","0. Tugatish ");
+        System.out.printf("| %-32s |%n", "1. Vazifa qo'shish ");
+        System.out.printf("| %-32s |%n", "2. Vazifa ro'yxati ");
+        System.out.printf("| %-32s |%n", "3. Holatni o‘zgartirish (nomi) ");
+        System.out.printf("| %-32s |%n", "4. Holatni o‘zgartirish (id) ");
+        System.out.printf("| %-32s |%n", "5. Aktiv vazifa ");
+        System.out.printf("| %-32s |%n", "0. Tugatish ");
         System.out.printf("------------------------------------%n");
     }
 }
