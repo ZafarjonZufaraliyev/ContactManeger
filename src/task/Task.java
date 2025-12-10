@@ -34,7 +34,9 @@ public class Task {
         return holat;
     }
 
+
     public void setHolat(String holat) {
         this.holat = holat;
     }
 }
+ruiop
