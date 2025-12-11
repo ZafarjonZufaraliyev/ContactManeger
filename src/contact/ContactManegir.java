@@ -17,46 +17,49 @@ public class ContactManegir {
                 case 1:
                     Contact contact = addContact();
                     addArrayContact(contact);
-
                     break;
-
                 case 2:
                     printList();
                     break;
-
                 case 3:
                     String qidiruvValue = query();
                     search(qidiruvValue);
                     break;
-
                 case 4:
                     String telefonDelete = inputDeletePhone();
                     deleteContact(telefonDelete);
+                    isVlit(telefonDelete);
                     break;
-
                 case 0:
                     System.out.println("|| Dastur tugadi ||");
                     start = false;
                     break;
-
                 default:
                     System.out.println("Iltimos tog'ri ma'lumot kiriting !!!");
             }
         }
     }
 
-
     public void deleteContact(String telefonDelete) {
         for (int i = 0; i < ContactArr.length; i++) {
             Contact contact = ContactArr[i];
             if (contact != null && contact.getTelefon().equals(telefonDelete)) {
-
-                System.out.println("|| " + contact.getIsm() + " " + contact.getFamilya() + " kontakti o'chirildi ||");
+                System.out.println("|| " + contact.getIsm()
+                        + " " + contact.getFamilya() + " kontakti o'chirildi ||");
                 ContactArr[i] = null;
                 return;
             }
         }
         System.out.println("|| Kontakt topilmadi ||");
+    }
+
+    public boolean isVlit(String p){
+        for(Contact contact:ContactArr){
+            if(contact!=null && contact.getTelefon().equals(p)){
+                return true;
+            }
+        }
+        return false;
     }
 
     public String inputDeletePhone() {
