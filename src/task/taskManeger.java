@@ -42,10 +42,10 @@ public class taskManeger {
     public Task addTask() {
 
         System.out.print("Sarlavha kiriting: ");
-        String sarlavha = scannerUtil.sc.nextLine();
+        String sarlavha = scannerUtil.scLine.nextLine();
 
         System.out.print("Mazmun kiriting: ");
-        String mazmun = scannerUtil.sc.nextLine();
+        String mazmun = scannerUtil.scLine.nextLine();
 
         Task task = new Task();
         task.setSarlavha(sarlavha);
@@ -122,7 +122,7 @@ public class taskManeger {
 
     public int getChangeId() {
         System.out.print("Id ni kiriting: ");
-        return scannerUtil.sc.nextInt();
+        return scannerUtil.scInt.nextInt();
     }
 
     public void changeStatusId(int Id) {
