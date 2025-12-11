@@ -1,5 +1,7 @@
 package task;
 
+import util.scannerUtil;
+
 import java.util.Scanner;
 
 public class taskManeger {
@@ -11,7 +13,7 @@ public class taskManeger {
         Boolean boshlanTask = true;
         while (boshlanTask) {
             menu();
-            Integer number = getNumber();
+            Integer number = scannerUtil.getNumber1();
             switch (number) {
                 case 1:
                     Task task = addTask();
@@ -38,13 +40,12 @@ public class taskManeger {
     }
 
     public Task addTask() {
-        Scanner scanner = new Scanner(System.in);
 
         System.out.print("Sarlavha kiriting: ");
-        String sarlavha = scanner.nextLine();
+        String sarlavha = scannerUtil.sc.nextLine();
 
         System.out.print("Mazmun kiriting: ");
-        String mazmun = scanner.nextLine();
+        String mazmun = scannerUtil.sc.nextLine();
 
         Task task = new Task();
         task.setSarlavha(sarlavha);
@@ -98,9 +99,8 @@ public class taskManeger {
     }
 
     public String getChangeTitel() {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Sarlavhani kiriting: ");
-        return scanner.next();
+        return scannerUtil.sc.next();
     }
 
     public void changeStatusTitel(String sarlavha) {
@@ -121,9 +121,8 @@ public class taskManeger {
     }
 
     public int getChangeId() {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Id ni kiriting: ");
-        return scanner.nextInt();
+        return scannerUtil.sc.nextInt();
     }
 
     public void changeStatusId(int Id) {
@@ -157,11 +156,6 @@ public class taskManeger {
         System.out.printf("--------------------------------------------------------------%n");
     }
 
-    public int getNumber() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Qanday amal bajarasiz: ");
-        return scanner.nextInt();
-    }
 
     public void menu() {
         System.out.printf("------------------------------------%n");

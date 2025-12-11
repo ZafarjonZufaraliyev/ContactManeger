@@ -1,20 +1,23 @@
 package contact;
 
-import java.util.Scanner;
+import util.scannerUtil;
 
+import java.util.Scanner;
 public class ContactManegir {
     Contact[] ContactArr = new Contact[10];
     Integer index = 0;
 
     public void start() {
         boolean start = true;
+
         while (start) {
             menu();
-            int getNumber = getNumber();
-            switch (getNumber) {
+            Integer getNumber1 = scannerUtil.getNumber1();
+            switch (getNumber1) {
                 case 1:
                     Contact contact = addContact();
                     addArrayContact(contact);
+
                     break;
 
                 case 2:
@@ -42,10 +45,12 @@ public class ContactManegir {
         }
     }
 
+
     public void deleteContact(String telefonDelete) {
         for (int i = 0; i < ContactArr.length; i++) {
             Contact contact = ContactArr[i];
             if (contact != null && contact.getTelefon().equals(telefonDelete)) {
+
                 System.out.println("|| " + contact.getIsm() + " " + contact.getFamilya() + " kontakti o'chirildi ||");
                 ContactArr[i] = null;
                 return;
@@ -55,15 +60,13 @@ public class ContactManegir {
     }
 
     public String inputDeletePhone() {
-        Scanner sc = new Scanner(System.in);
         System.out.print("Telefon raqam: ");
-        return sc.next();
+        return scannerUtil.sc.next();
     }
 
     public String query() {
-        Scanner sc = new Scanner(System.in);
         System.out.print("Qidirish: ");
-        return sc.next();
+        return scannerUtil.sc.next();
     }
 
     public void search(String qidiruvValue) {
@@ -144,15 +147,15 @@ public class ContactManegir {
     }
 
     public Contact addContact() {
-        Scanner sc = new Scanner(System.in);
+
         System.out.print("Ism kiriting: ");
-        String ism = sc.next();
+        String ism = scannerUtil.sc.next();
 
         System.out.print("Familya kiriting: ");
-        String familya = sc.next();
+        String familya = scannerUtil.sc.next();
 
         System.out.print("Telefon kiriting: ");
-        String telefon = sc.next();
+        String telefon = scannerUtil.sc.next();
 
         Contact contact = new Contact();
         contact.setIsm(ism);
@@ -174,9 +177,5 @@ public class ContactManegir {
         System.out.printf("-----------------------------%n");
     }
 
-    public int getNumber() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Qanday amal bajarasiz: ");
-        return sc.nextInt();
-    }
+
 }

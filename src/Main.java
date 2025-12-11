@@ -1,7 +1,6 @@
 import contact.ContactManegir;
+import util.scannerUtil;
 import task.taskManeger;
-
-import java.util.Scanner;
 
 public class Main {
 
@@ -11,7 +10,7 @@ public class Main {
         boolean boshlasAsosiy = true;
         while (boshlasAsosiy) {
             menu();
-            int b = getNumber();
+            Integer b = scannerUtil.getNumber1();
             switch (b) {
                 case 1:
                     contactManegir.start();
@@ -37,9 +36,4 @@ public class Main {
         System.out.printf("-----------------------------%n");
     }
 
-    public static int getNumber() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Qaysi dastur ishga tushsin: ");
-        return scanner.nextInt();
-    }
 }
