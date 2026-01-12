@@ -9,6 +9,7 @@ public class Main {
         taskManeger taskManeger = new taskManeger();
         ContactManegir contactManegir = new ContactManegir();
         SmsManeger smsManeger = new SmsManeger(contactManegir);
+        contactManegir.setSmsManeger(smsManeger);
         boolean boshlasAsosiy = true;
         while (boshlasAsosiy) {
             menu();

@@ -37,7 +37,8 @@ public class SmsManeger {
                     Allsearch();
                     break;
                 case 4:
-                    //
+                    String getDelet=getNumberDelet();
+                    DeletSms(getDelet);
                     break;
                 case 0:
                     System.out.println("|| Dastur tugadi! ||");
@@ -51,6 +52,19 @@ public class SmsManeger {
     }
 
 
+    public void DeletSms(String getNumber){
+        for (int i=0; i<smsArray.length; i++){
+            sms sms=smsArray[i];
+            if (sms!=null && sms.getTelefon().equals(getNumber)){
+                smsArray[i]=null;
+                System.out.println("Sms o'chirildi");
+            }
+        }
+    }
+    public String getNumberDelet(){
+        System.out.println("Telefon raqam: ");
+        return scannerUtil.sc.nextLine();
+    }
     public String getSearch(){
         System.out.println("Telefon qaraqam: ");
         return scannerUtil.sc.nextLine();
@@ -62,7 +76,6 @@ public class SmsManeger {
             }
         }
     }
-
     public void Allsearch(){
         for (int i=0;i<smsArray.length;i++){
             if (smsArray[i]!=null){

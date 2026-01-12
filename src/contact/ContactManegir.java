@@ -1,11 +1,18 @@
 package contact;
 
+import sms.SmsManeger;
 import util.scannerUtil;
 
 import java.util.Scanner;
 public class ContactManegir {
     Contact[] ContactArr = new Contact[10];
     Integer index = 0;
+
+    private SmsManeger smsManeger;
+
+    public void setSmsManeger(SmsManeger smsManeger) {
+        this.smsManeger = smsManeger;
+    }
 
     public void start() {
         boolean start = true;
@@ -47,6 +54,7 @@ public class ContactManegir {
                 System.out.println("|| " + contact.getIsm()
                         + " " + contact.getFamilya() + " kontakti o'chirildi ||");
                 ContactArr[i] = null;
+                smsManeger.DeletSms(contact.getTelefon());
                 return;
             }
         }
