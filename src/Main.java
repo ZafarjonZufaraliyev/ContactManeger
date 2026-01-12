@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         taskManeger taskManeger = new taskManeger();
         ContactManegir contactManegir = new ContactManegir();
-        SmsManeger smsManeger=new SmsManeger(contactManegir);
+        SmsManeger smsManeger = new SmsManeger(contactManegir);
         boolean boshlasAsosiy = true;
         while (boshlasAsosiy) {
             menu();
@@ -39,6 +39,8 @@ public class Main {
         System.out.printf("| %-25s |%n", "3. Sms Maneger");
         System.out.printf("| %-25s |%n", "0. Chiqish");
         System.out.printf("-----------------------------%n");
-    }
 
+
+
+    }
 }

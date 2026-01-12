@@ -5,6 +5,7 @@ import contact.ContactManegir;
 import util.scannerUtil;
 
 import java.time.LocalDateTime;
+import java.util.Scanner;
 
 public class SmsManeger {
     private sms[] smsArray=new sms[10];
@@ -29,10 +30,11 @@ public class SmsManeger {
                     //
                     break;
                 case 2:
-                    //
+                    String raam=getSearch();
+                    search(raam);
                     break;
                 case 3:
-                    //
+                    Allsearch();
                     break;
                 case 4:
                     //
@@ -44,9 +46,30 @@ public class SmsManeger {
                 default:
                     System.out.println("Siz xato raqam or harf kritdingiz !!!");
             }
+
         }
     }
 
+
+    public String getSearch(){
+        System.out.println("Telefon qaraqam: ");
+        return scannerUtil.sc.nextLine();
+    }
+    public void search(String raqam){
+        for (sms sms:smsArray){
+            if (sms!=null && sms.getTelefon().equals(raqam) ){
+                System.out.println(sms.getId()+". "+sms.getTelefon()+"\n"+sms.getXabar()+" "+sms.getSentDate());
+            }
+        }
+    }
+
+    public void Allsearch(){
+        for (int i=0;i<smsArray.length;i++){
+            if (smsArray[i]!=null){
+                System.out.println(smsArray[i].getId()+". "+smsArray[i].getTelefon()+"\n"+smsArray[i].getXabar());
+            }
+        }
+    }
     public void addToArray(sms smsXabar){
             boolean b=contactManegir.isVlit(smsXabar.getTelefon());
             if(!b){

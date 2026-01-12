@@ -8,6 +8,11 @@ public class taskManeger {
     public Task[] taskArray = new Task[10];
     public Integer index = 0;
     public Integer generalId = 1;
+    int id = 0;
+
+    public taskManeger(){
+        id++;
+    }
 
     public void start() {
         Boolean boshlanTask = true;
@@ -34,7 +39,11 @@ public class taskManeger {
                     prinActivTask();
                     break;
                 case 0:
+                    System.out.println("|| Dastur tugadi ||");
+                    boshlanTask = false;
                     break;
+                default:
+                    System.out.println("Xato raqam kritding!!!");
             }
         }
     }
